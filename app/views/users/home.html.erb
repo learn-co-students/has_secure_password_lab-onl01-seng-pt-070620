@@ -1,0 +1,8 @@
+<h1>TeamTracker</h1>
+<h2>Welcome to your homepage <%= @user.name %></h2>
+
+<%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
+<%= link_to(controller: 'sessions', action: 'new') { 'log in' } %>
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>
