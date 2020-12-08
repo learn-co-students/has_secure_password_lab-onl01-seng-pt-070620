@@ -5,14 +5,16 @@ class SessionsController < ApplicationController
 
 
   def create
-      user = User.find_by(name: params[:name])
-      authenticated = user.try(:authenticate, params[:password])
+      user = User.find_by(name: params[:user][:name])
+      authenticated = user.try(:authenticate, params[:user][:password])
+     # binding.pry
       if authenticated
+        
           @user = user
           session[:user_id] = @user.id
           redirect_to(controller: 'users', action: 'welcome')
       else
-          redirect_to action: 'new'
+          redirect_to(controller: 'sessions', action: 'new')
       end
   end
 
