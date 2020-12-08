@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :home]
+  resources :users, only: [:new, :create]
+  
+  root 'welcome#home'
   
 end
