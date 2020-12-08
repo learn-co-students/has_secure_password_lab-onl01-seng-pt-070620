@@ -1,0 +1,6 @@
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+    Name: <input name=name><br>
+    Password: <input name=password><br>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type=submit value='login'>
+  <% end %>
