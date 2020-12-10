@@ -1,5 +1,4 @@
-<h1>Welcome!</h1>
-
-<%# <%= form_tag logout_path %>
-<%# <% submit_tag "Log out"%> %> %>
-
+<h1>Welcome, <%= @user.name %></h1>
+<%= form_tag('/logout') do %>
+  <%= submit_tag "Logout" %>
+<% end %>
