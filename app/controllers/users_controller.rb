@@ -6,16 +6,16 @@ class UsersController < ApplicationController
     def create 
         @user = User.create(user_params)
         # binding.pry
-        if @user.save 
-            session[:user_id] = @user.id 
-            redirect_to user_path(@user)
+        if !@user.save 
+            redirect_to signup_path
         else 
-            redirect_to :login
+            session[:user_id] = @user.id 
+            redirect_to '/'
         end 
     end 
 
-    def show 
-        @user = User.find_by(params[:id])
+    def welcome
+        @user = (User.find_by(id: session[:user_id]) || User.new)
         # binding.pry
     end 
 

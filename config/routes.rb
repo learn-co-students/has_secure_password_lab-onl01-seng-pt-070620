@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'users#show'
+  get '/', to: 'users#welcome'
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   get 'login', to: 'sessions#new'
